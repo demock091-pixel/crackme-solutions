@@ -72,4 +72,5 @@ pesan sukses/valid.
 ## Screenshot
 
 ![Ghidra decompile halftwin](halftwin1.png)
+ternyata halftwin ini memerlukan 3 argumen untuk bisa di run (./halftwin jhadjaw audiagd)
 ![gdb breakpoint halftwin](screenshots/gdb-breakpoint.png)
