@@ -73,4 +73,5 @@ pesan sukses/valid.
 
 ![Ghidra decompile halftwin](halftwin1.png)
 ternyata halftwin ini memerlukan 3 argumen untuk bisa di run (./halftwin jhadjaw audiagd)
-![gdb breakpoint halftwin](screenshots/gdb-breakpoint.png)
+![Ghidra decompile halftwin](halftwin2.png)
+disini terjadi pengecekan panjang string Abby (__s), Gabby (__s_00)
