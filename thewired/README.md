@@ -35,7 +35,7 @@ if (param_1 == 2) {
 }
 ```
 
-![Ghidra decompile fungsi utama thewired](screenshots/ghidra-decompile-main.png)
+![Ghidra decompile fungsi utama thewired](screenshots/thewired_assembly.jpeg)
 
 <br>
 
@@ -51,7 +51,7 @@ terlihat kalau cuma di-`strings`.
 
 Titik krusial ada di baris pemanggilan `strcmp`, terlihat di assembly:
 
-![Assembly call strcmp](screenshots/ghidra-strcmp-call.png)
+![Assembly call strcmp](screenshots/thewired_call_strcmp.jpeg)
 
 <br>
 
@@ -67,13 +67,13 @@ satu per satu), dipilih pendekatan lebih cepat: **membaca buffer password
 asli langsung dari memory saat runtime**, tepat sebelum `strcmp`
 dieksekusi.
 
-![gdb load binary](screenshots/gdb-load-binary.png)
+![gdb load binary](screenshots/thewired_gdb_load.jpeg)
 
 <br>
 
 *Gambar 3: Memuat binary `thewired` ke dalam gdb.*
 
-![gdb starti dan proc mappings](screenshots/gdb-starti-mappings.png)
+![gdb starti dan proc mappings](screenshots/thewired_starti_procmappings.jpeg)
 
 <br>
 
