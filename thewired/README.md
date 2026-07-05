@@ -88,7 +88,7 @@ dari Ghidra:
 
 <br>
 
-![gdb breakpoint dan pembacaan register](screenshots/gdb-breakpoint-registers.png)
+![gdb breakpoint dan pembacaan register](screenshots/thewired_gdb_breakpoint.jpeg)
 
 <br>
 
@@ -112,14 +112,14 @@ di-decode oleh program itu sendiri.
 
 Percobaan dengan password sembarang menghasilkan pesan gagal:
 
-![Percobaan password salah](screenshots/exec-wrong-password.png)
+![Percobaan password salah](screenshots/thewired_exec_wrong_password.jpeg)
 
 <br>
 
 *Gambar 6: `./thewired 1234` menghasilkan `[-] Incorrect Password`,
 mengonfirmasi bahwa string `"1234"` tidak cocok dengan hasil decode.*
 
-![Program dijalankan tanpa argumen](screenshots/exec-no-argument.png)
+![Program dijalankan tanpa argumen](screenshots/thewired_exec_no_argument.jpeg)
 
 <br>
 
