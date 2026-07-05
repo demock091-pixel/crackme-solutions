@@ -104,5 +104,5 @@ selanjutnya _if (__s[local_3c] == __s_00[local_3c])_ ini juga gagal karena merek
 Jadi Loop pertama semua karakter harus 100% identik, dan di Loop kedua semua karakter harus 100% berbeda.
 
 
-![Ghidra decompile halftwin](halftwin5.png)
+![Ghidra decompile halftwin](halftwin5.jpeg)
 
