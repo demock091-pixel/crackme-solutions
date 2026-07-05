@@ -70,8 +70,6 @@ pesan sukses/valid.
   analisis statis (Ghidra)
 
 ## Screenshot
-_(taruh screenshot Ghidra decompiler + gdb breakpoint di folder `screenshots/`,
-lalu reference di sini, contoh:)_
 
-![Ghidra decompile halftwin](screenshots/ghidra-decompile.png)
+![Ghidra decompile halftwin](halftwin1.png)
 ![gdb breakpoint halftwin](screenshots/gdb-breakpoint.png)
