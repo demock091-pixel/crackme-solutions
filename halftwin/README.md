@@ -79,4 +79,8 @@ ternyata halftwin ini memerlukan 3 argumen untuk bisa di run (./halftwin jhadjaw
 
 ![Ghidra decompile halftwin](halftwin2.png)
 ![Ghidra decompile halftwin](halftwin3.png)
-disini terjadi pengecekan panjang string Abby (__s), Gabby (__s_00)
+
+
+disini terjadi pengecekan panjang Input Abby (__s), Gabby (__s_00). Jika panjang Input ke-1 (Abby) < 7 maka akan keluar Output 'Abby: i\'m older than that :(' dan begitu juga dengan panjang Input ke-2 (Gabby), jika panjang Input ke-1 dan ke-2 > 7 tapi ganjil maka akan keluar Output 'Abby & Gabby: we are not \"odd\" years old :('.
+
+
