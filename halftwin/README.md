@@ -103,3 +103,6 @@ Jadi loop kedua ini nyisir setengah kedua string (index len/2 sampai len-1).
 selanjutnya _if (__s[local_3c] == __s_00[local_3c])_ ini juga gagal karena mereka (Abby, Gabby) hanya halftwin.
 Jadi Loop pertama semua karakter harus 100% identik, dan di Loop kedua semua karakter harus 100% berbeda.
 
+
+![Ghidra decompile halftwin](halftwin5.png)
+
