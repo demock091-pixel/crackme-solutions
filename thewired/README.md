@@ -84,3 +84,63 @@ absolut breakpoint dari offset relatif di Ghidra (`0x14b6`).*
 
 Alamat breakpoint dihitung dengan menjumlahkan base address dengan offset
 dari Ghidra:
+0x0000555555554000 + 0x14b6 = 0x5555555554b6
+
+<br>
+
+![gdb breakpoint dan pembacaan register](screenshots/gdb-breakpoint-registers.png)
+
+<br>
+
+*Gambar 5: Breakpoint dipasang tepat di alamat `CALL strcmp`
+(`break *0x0000555555554000+0x14b6`). Setelah program di-`continue`
+sampai breakpoint tercapai, register `rdi` dan `rsi` diperiksa dengan
+`info registers` — keduanya berisi alamat memory dari dua string yang
+akan dibandingkan `strcmp`. Dengan perintah `x/s $rdi` dan `x/s $rsi`,
+isi string tersebut dibaca langsung:*
+
+- `rdi` → `"main"` (argumen yang diberikan user saat menjalankan program)
+- `rsi` → `"we_all_love_serial_experiments_lain"` (password asli hasil
+  decode XOR, terbaca langsung dari memory tanpa perlu decode manual)
+
+**Ini adalah aha moment utama**: daripada menghitung ulang XOR dari dua
+tabel data secara manual (rawan salah hitung), cukup pasang breakpoint
+tepat sebelum perbandingan terjadi, lalu baca isi buffer yang sudah
+di-decode oleh program itu sendiri.
+
+### 3. Verifikasi Password
+
+Percobaan dengan password sembarang menghasilkan pesan gagal:
+
+![Percobaan password salah](screenshots/exec-wrong-password.png)
+
+<br>
+
+*Gambar 6: `./thewired 1234` menghasilkan `[-] Incorrect Password`,
+mengonfirmasi bahwa string `"1234"` tidak cocok dengan hasil decode.*
+
+![Program dijalankan tanpa argumen](screenshots/exec-no-argument.png)
+
+<br>
+
+*Gambar 7: Menjalankan `./thewired` tanpa argumen (sehingga `argc` tidak
+sama dengan 2) menampilkan teks flavor `"The Wired is just a higher
+field of reality"`, bukan pesan error — mengonfirmasi bahwa cabang
+`if (param_1 == 2)` di Ghidra memang hanya dieksekusi ketika ada
+tepat satu argumen tambahan.*
+
+## Konsep Kunci yang Dipelajari
+- Obfuscation string via XOR runtime: string asli tidak pernah disimpan
+  mentah di binary, sehingga tidak terlihat dengan `strings` biasa
+- Menghitung alamat breakpoint absolut dari offset relatif Ghidra +
+  base address proses (`info proc mappings`)
+- Membaca isi memory langsung lewat register (`info registers`,
+  `x/s $reg`) sebagai cara cepat mem-bypass reverse-engineering manual
+  terhadap algoritma decode
+- Breakpoint strategis: menempatkan breakpoint tepat sebelum instruksi
+  perbandingan (`strcmp`) adalah teknik umum untuk "mencuri" hasil
+  decode tanpa perlu memahami algoritmanya secara utuh
+
+## Screenshot
+Lihat folder `screenshots/` untuk seluruh gambar yang direferensikan
+di atas.
