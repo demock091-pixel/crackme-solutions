@@ -106,3 +106,11 @@ Jadi Loop pertama semua karakter harus 100% identik, dan di Loop kedua semua kar
 
 ![Ghidra decompile halftwin](halftwin5.jpeg)
 
+
+Di gambar saya sudah mencoba ./halftwin dan outputnya 'im not sure you know what the word 'twins' means'
+halftwin ini membutuhkan 3 argumen supaya bisa berhasil.
+contoh yang benar : ./halftwin abcdefgh abcdijkl
+
+jadi, 4 karakter pertama harus 100% identik, dan 4 karakter terakhir harus 100% berbeda.
+
+
