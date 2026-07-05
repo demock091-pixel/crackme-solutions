@@ -74,13 +74,32 @@ pesan sukses/valid.
 ![Ghidra decompile halftwin](halftwin1.png)\n
 
 
-ternyata halftwin ini memerlukan 3 argumen untuk bisa di run (./halftwin jhadjaw audiagd)
+ternyata halftwin ini memerlukan 3 argumen untuk bisa di run
+(./halftwin jhadjaw audiagd)
 
 
 ![Ghidra decompile halftwin](halftwin2.png)
-![Ghidra decompile halftwin](halftwin3.png)
 
 
-disini terjadi pengecekan panjang Input Abby (__s), Gabby (__s_00). Jika panjang Input ke-1 (Abby) < 7 maka akan keluar Output 'Abby: i\'m older than that :(' dan begitu juga dengan panjang Input ke-2 (Gabby), jika panjang Input ke-1 dan ke-2 > 7 tapi ganjil maka akan keluar Output 'Abby & Gabby: we are not \"odd\" years old :('.
+disini terjadi pengecekan panjang Input Abby (__s), Gabby (__s_00).
+Jika panjang Input ke-1 (Abby) < 7 maka akan keluar Output 'Abby: i\'m older than that :('
+dan begitu juga dengan panjang Input ke-2 (Gabby), 
+jika panjang Input ke-1 dan ke-2 > 7 tapi ganjil maka akan keluar Output 'Abby & Gabby: we are not \"odd\" years old :('.
 
+
+![Ghidra decompile halftwin](halftwin4.png)
+
+
+Pada Loop pertama terlihat sVar1 >> 1 artinya, geser 1 bit ke kanan sama efeknya kayak bagi 2 (dan buang sisa/pembulatan ke bawah),
+selanjutnya __for (local_3c = 0; local_3c < (int)(sVar1 >> 1); local_3c = local_3c + 1)_ artinya ini loop dari index 0 - setengah panjang total string
+kalau len = 8 loop akan jalan _local_3c = 0, 1, 2, 3_.
+Lalu ada juga _if (__s[local_3c] != __s_00[local_3c])_ artinya pada loop pertama ini semua karakter arg1 dan arg2 harus 100% identik.
+
+
+Pada Loop kedua terlihat for _(; local_3c < (int)sVar1; local_3c = local_3c + 1)_ local_3c nggak di-reset ke 0.
+Karena local_3c itu variabel yang sama dari loop pertama,
+dan loop pertama berhenti pas local_3c == len/2, maka loop kedua ini lanjut dari situ (len/2) sampai len (akhir string).
+Jadi loop kedua ini nyisir setengah kedua string (index len/2 sampai len-1).
+selanjutnya _if (__s[local_3c] == __s_00[local_3c])_ ini juga gagal karena mereka (Abby, Gabby) hanya halftwin.
+Jadi Loop pertama semua karakter harus 100% identik, dan di Loop kedua semua karakter harus 100% berbeda.
 
