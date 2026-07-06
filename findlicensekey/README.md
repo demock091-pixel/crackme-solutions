@@ -14,7 +14,7 @@ karakter berbasis tabel, yang bergantung pada isi username itu sendiri.
 
 ### 1. Menjalankan Tanpa Argumen
 
-![Program dijalankan tanpa argumen](screenshots/findlicensekey_need_argument.png)
+![Program dijalankan tanpa argumen](screenshots/findlicensekey_need_argument.jpeg)
 
 <br>
 
@@ -26,7 +26,7 @@ program membutuhkan satu argumen berupa username.*
 
 Membuka binary di Ghidra dan melihat decompiler view fungsi `main`:
 
-![Decompile alur utama findlicensekey](screenshots/findlicensekey_decompiler.png)
+![Decompile alur utama findlicensekey](screenshots/findlicensekey_decompiler.jpeg)
 
 <br>
 
@@ -45,7 +45,7 @@ punya license key yang berbeda.
 
 Membedah fungsi `FUN_00101189` yang dipanggil sebelumnya:
 
-![Decompile fungsi generate license](screenshots/findlicensekey_decompiler2.png)
+![Decompile fungsi generate license](screenshots/findlicensekey_decompiler2.jpeg)
 
 <br>
 
@@ -99,7 +99,7 @@ int main()
 }
 ```
 
-![Hasil eksekusi keygen](screenshots/findlicensekey_keygen.png)
+![Hasil eksekusi keygen](screenshots/findlicensekey_keygen.jpeg)
 
 <br>
 
@@ -112,7 +112,7 @@ Untuk memastikan hasil keygen benar-benar diterima oleh binary asli,
 dilakukan verifikasi dinamis dengan memasang breakpoint tepat di
 pemanggilan `strcmp`:
 
-![gdb breakpoint strcmp dan pembacaan register](screenshots/findlicensekey_gdb_rdi_rsi.png)
+![gdb breakpoint strcmp dan pembacaan register](screenshots/findlicensekey_gdb_rdi_rsi.jpeg)
 
 <br>
 
