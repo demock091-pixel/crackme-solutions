@@ -71,14 +71,14 @@ pesan sukses/valid.
 
 ## Screenshot
 
-![Ghidra decompile halftwin](halftwin1.png)\n
+![Ghidra decompile halftwin](screenshots/halftwin1.png)\n
 
 
 ternyata halftwin ini memerlukan 3 argumen untuk bisa di run
 (./halftwin jhadjaw audiagd)
 
 
-![Ghidra decompile halftwin](halftwin2.png)
+![Ghidra decompile halftwin](screenshots/halftwin2.png)
 
 
 disini terjadi pengecekan panjang Input Abby (__s), Gabby (__s_00).
@@ -87,7 +87,7 @@ dan begitu juga dengan panjang Input ke-2 (Gabby),
 jika panjang Input ke-1 dan ke-2 > 7 tapi ganjil maka akan keluar Output 'Abby & Gabby: we are not \"odd\" years old :('.
 
 
-![Ghidra decompile halftwin](halftwin4.png)
+![Ghidra decompile halftwin](screenshots/halftwin4.png)
 
 
 Pada Loop pertama terlihat sVar1 >> 1 artinya, geser 1 bit ke kanan sama efeknya kayak bagi 2 (dan buang sisa/pembulatan ke bawah),
@@ -104,7 +104,7 @@ selanjutnya _if (__s[local_3c] == __s_00[local_3c])_ ini juga gagal karena merek
 Jadi Loop pertama semua karakter harus 100% identik, dan di Loop kedua semua karakter harus 100% berbeda.
 
 
-![Ghidra decompile halftwin](halftwin5.jpeg)
+![Ghidra decompile halftwin](screenshots/halftwin5.jpeg)
 
 
 Di gambar saya sudah mencoba ./halftwin dan outputnya 'im not sure you know what the word 'twins' means'
